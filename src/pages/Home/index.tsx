@@ -4,7 +4,6 @@ import { Button } from 'antd';
 import { appStore } from '../../stores';
 import TestApi from '../../api/test';
 import ReactJson from 'react-json-view';
-import Login from '../../components/LoginQSSO';
 
 @observer
 export default class Home extends Component<{}, any> {
@@ -39,9 +38,7 @@ export default class Home extends Component<{}, any> {
                 <Button onClick={this.clickA}>global loading</Button>
                 <Button onClick={this.clickB}>test post</Button>
                 <Button onClick={this.clickC}>test cookie</Button>
-                <div>
-                    <Login />
-                </div>
+                <div />
                 <div>
                     <ReactJson src={this.state.rj} />
                 </div>

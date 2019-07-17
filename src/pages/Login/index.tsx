@@ -3,6 +3,7 @@ import { Button } from 'antd';
 import { observer } from 'mobx-react';
 import { RouteComponentProps } from 'react-router';
 import { appStore } from '../../stores';
+import LoginQ from '../../components/LoginQSSO';
 import './index.less';
 
 @observer
@@ -12,15 +13,6 @@ export default class Login extends Component<RouteComponentProps, {}> {
         appStore.updateHasLogin(!appStore.hasLogin);
     }
     componentDidMount() {
-        try {
-            QSSO.attach(
-                'qsso-login',
-                `/api/qssologin?next=${encodeURIComponent(this.props.location.state.from.pathname)}`
-            );
-            // QSSO.attach('qsso-login', '/airtest');
-        } catch (e) {
-            console.error(e);
-        }
         console.log('..........Login:componentDidMount:\n', this);
     }
 
@@ -35,10 +27,8 @@ export default class Login extends Component<RouteComponentProps, {}> {
                 <Button onClick={this.clickA}>
                     点击切换登录状态 [{String(appStore.hasLogin)}]
                 </Button>
-                {location && location.state && <div>From: {location.state.from.pathname}</div>}
-                <div>
-                    <div id='qsso-login'>QSSO登录</div>
-                </div>
+                {location && location.state && <div className="not-login-msg">没有登录。来源地址: {location.state.from.pathname}</div>}
+                <LoginQ />
             </div>
         );
     }
