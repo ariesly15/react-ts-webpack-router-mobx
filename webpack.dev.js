@@ -21,6 +21,7 @@ module.exports = WebpackMerge(CommonConfig, {
         ]
     },
     devServer: {
+        disableHostCheck: true,
         contentBase: path.join(__dirname, 'dist'),
         historyApiFallback: true,
         //  指定使用一个 host。默认是 localhost。如果你希望服务器外部可访问，写法如下
