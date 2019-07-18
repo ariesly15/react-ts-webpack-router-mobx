@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 import RootView from './layout/root';
 import './bootstrap';
+import './index.less';
 
 ReactDOM.render(<RootView />, document.getElementById('root'));
 

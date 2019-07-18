@@ -27,7 +27,7 @@ export default class RootView extends React.Component<{}, {}> {
         return (
             <Provider {...Store}>
                 <Router history={history}>
-                    <Spin tip='Loading' spinning={rootStores.appStore.reqCount > 0}>
+                    <Spin wrapperClassName="h100p" tip='Loading' spinning={rootStores.appStore.reqCount > 0}>
                         <Nav />
                         <RootRouters />
                     </Spin>
