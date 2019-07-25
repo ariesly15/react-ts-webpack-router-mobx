@@ -1,5 +1,6 @@
 import axios, { AxiosRequestConfig } from 'axios';
 import { appStore } from '../stores';
+import { STATUS } from '../common/const';
 
 axios.defaults.baseURL = '/';
 // token 验证, 需要的话自行打开注释
@@ -41,8 +42,12 @@ axios.interceptors.response.use(
             appStore.updateReqCount(-1);
         }
         const result = res.data;
-        if (result.hasOwnProperty('code') && result.code !== 0) {
+        if (result.hasOwnProperty('status') && result.status !== 0) {
+            const st = result.status;
             // 根据需求自定义错误码, 统一处理
+            if (st === STATUS.NOT_LOGIN.status) {
+                appStore.updateHasLogin(false);
+            }
         }
         return result.data;
     },

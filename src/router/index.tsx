@@ -8,6 +8,7 @@ import Home from '../pages/Home';
 import Login from '../pages/Login';
 import App from '../App';
 import Airtest from '../pages/Airtest'
+import AirtestLog from '../pages/AirtestLog'
 // Pages End
 
 function PrivateRoute({ component: C, ...rest }: RouteProps) {
@@ -37,7 +38,8 @@ export default class RootRouters extends Component {
             <Switch>
                 <Route path='/login' component={Login} />
                 <PrivateRoute path='/app' component={App} />
-                <Route path='/airtest' component={Airtest} />
+                <Route exact path='/airtest' component={Airtest} />
+                <Route path='/airtest/log' component={AirtestLog} />
                 <Route path='/' component={Home} />
             </Switch>
         );
