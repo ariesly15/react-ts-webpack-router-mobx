@@ -1,10 +1,10 @@
 import axios, { AxiosRequestConfig } from 'axios';
 import { appStore } from '../stores';
-import { STATUS } from '../common/const';
+import { STATUS, AUTH_TOKEN } from '../common/const';
 
 axios.defaults.baseURL = '/';
 // token 验证, 需要的话自行打开注释
-// axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
+axios.defaults.headers.common['Authorization'] = `Bearer ${AUTH_TOKEN}`;
 
 // 添加请求拦截器
 axios.interceptors.request.use(
@@ -46,6 +46,9 @@ axios.interceptors.response.use(
             const st = result.status;
             // 根据需求自定义错误码, 统一处理
             if (st === STATUS.NOT_LOGIN.status) {
+                appStore.updateHasLogin(false);
+            }
+            if (st === STATUS.TOKEN_EXPIRED.status) {
                 appStore.updateHasLogin(false);
             }
         }

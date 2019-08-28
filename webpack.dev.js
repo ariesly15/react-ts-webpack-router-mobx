@@ -32,6 +32,11 @@ module.exports = WebpackMerge(CommonConfig, {
                 target: ProxyUrl,
                 changeOrigin: true,
                 secure: false
+            },
+            '/socket.io/*': {
+                target: ProxyUrl,
+                changeOrigin: true,
+                secure: false
             }
         }
     }

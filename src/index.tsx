@@ -4,6 +4,8 @@ import * as serviceWorker from './serviceWorker';
 import RootView from './layout/root';
 import './bootstrap';
 import './index.less';
+import './assets/prism/prism.js';
+import './assets/prism/prism.css';
 
 ReactDOM.render(<RootView />, document.getElementById('root'));
 
