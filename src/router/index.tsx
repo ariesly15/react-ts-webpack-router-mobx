@@ -9,6 +9,7 @@ import Login from '../pages/Login';
 import App from '../App';
 import Airtest from '../pages/Airtest'
 import AirtestLog from '../pages/AirtestLog'
+import SocketIO from '../pages/Test/SocketIO'
 // Pages End
 
 function PrivateRoute({ component: C, ...rest }: RouteProps) {
@@ -40,6 +41,7 @@ export default class RootRouters extends Component {
                 <PrivateRoute path='/app' component={App} />
                 <Route exact path='/airtest' component={Airtest} />
                 <Route path='/airtest/log' component={AirtestLog} />
+                <Route exact path='/socketio' component={SocketIO} />
                 <Route path='/' component={Home} />
             </Switch>
         );

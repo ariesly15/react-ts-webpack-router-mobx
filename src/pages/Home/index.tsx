@@ -26,7 +26,7 @@ export default class Home extends Component<{}, any> {
     }
 
     initIO() {
-        const socket = io('/airtest', {
+        const socket = io('http://127.0.0.1:7001/airtest', {
             query: {
                 socket: 'test'
             }
@@ -34,11 +34,14 @@ export default class Home extends Component<{}, any> {
         socket.on('connect', () => {
             const id = socket.id;
             console.log('###socket::id::', id, socket);
+            socket.emit('ping', 'ping msg');
+            socket.emit('/', 'ping msg');
         });
         socket.on('online', msg => console.log('###online::', msg));
         socket.on('disconnect', msg => console.log('###disconnect::', msg));
         socket.on('disconnecting', () => console.log('###disconnecting'));
         socket.on('error', () => console.log('###error'));
+        socket.on('res', msg => console.log('res from server: %s!', msg));
     }
     clickA() {
         appStore.updateReqCount(2);
