@@ -11,14 +11,17 @@ export default {
     testCookie() {
         return axios.get('/api/test/cookie');
     },
-    testup(url, data){
+    testup(url, data) {
         return axios.post(url, data, {
             headers: {
-                "Content-Type": "multipart/form-data"
+                'Content-Type': 'multipart/form-data'
             }
-        })
+        });
     },
-    testdown(){
-        return axios.get('/api/case/down?caseId=37')
+    testCORS() {
+        return axios.get('http://127.0.0.1:7001/test');
+    },
+    testdown() {
+        return axios.get('/api/case/down?caseId=37');
     }
 };

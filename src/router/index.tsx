@@ -7,9 +7,10 @@ import { observer } from 'mobx-react';
 import Home from '../pages/Home';
 import Login from '../pages/Login';
 import App from '../App';
-import Airtest from '../pages/Airtest'
-import AirtestLog from '../pages/AirtestLog'
-import SocketIO from '../pages/Test/SocketIO'
+import Airtest from '../pages/Airtest';
+import AirtestLog from '../pages/AirtestLog';
+import SocketIO from '../pages/Test/SocketIO';
+import TestCORS from '../pages/Test/cors';
 // Pages End
 
 function PrivateRoute({ component: C, ...rest }: RouteProps) {
@@ -40,6 +41,7 @@ export default class RootRouters extends Component {
                 <Route path='/login' component={Login} />
                 <PrivateRoute path='/app' component={App} />
                 <Route exact path='/airtest' component={Airtest} />
+                <Route exact path='/cors' component={TestCORS} />
                 <Route path='/airtest/log' component={AirtestLog} />
                 <Route exact path='/socketio' component={SocketIO} />
                 <Route path='/' component={Home} />

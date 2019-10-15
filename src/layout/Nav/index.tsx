@@ -23,6 +23,10 @@ const Routers = [
         text: 'Airtest'
     },
     {
+        link: '/cors',
+        text: 'CORS'
+    },
+    {
         link: '/socketio',
         text: 'SocketIO'
     }
